@@ -9,8 +9,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "lint": "eslint .",
+    "interactions:guild": "node utils/deploy-integrations.js",
+    "interactions:global": "node utils/deploy-integrations-global.js",
+    "interactions:remove": "node utils/remove-integrations.js"
   },
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
@@ -20,6 +23,7 @@
     "npm-check-updates": "^16.0.1"
   },
   "devDependencies": {
+    "eslint": "^8.20.0",
     "nodemon": "^2.0.19"
   }
 }
