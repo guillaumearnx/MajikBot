@@ -1,0 +1,26 @@
+{
+  "name": "majikbot",
+  "description": "A bot for the Majik Discord server",
+  "author": {
+    "name": "arnoux23u",
+    "url": "https://github.com/guillaumearnx"
+  },
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "colors": "^1.4.0",
+    "discord-api-types": "^0.36.3",
+    "discord.js": "^14.0.3",
+    "fs": "^0.0.1-security",
+    "npm-check-updates": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

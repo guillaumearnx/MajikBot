@@ -1,0 +1,21 @@
+{
+  "CLIENT": {
+    "ID": "",
+    "TOKEN": "",
+    "MAIN_GUILD_ID": ""
+  },
+  "CHANNELS": {
+    "LOGS": "",
+    "COMMANDS": "",
+    "PUBLIC_COMMANDS": ""
+  },
+  "OTHERS": {
+    "GITHUB": "https://github.com/guillaumearnx"
+  },
+  "OWNERS": [
+    {
+      "ID": "",
+      "NAME": ""
+    }
+  ]
+}
