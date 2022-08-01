@@ -14,7 +14,7 @@ module.exports = async (bot, interaction) => {
                 if (file.config.specialPermissions.toLowerCase() === 'administrator') {
                     return interaction.reply({content: 'You can\'t do that !', ephemeral: true});
                 }
-                if (file.config.mandatoryChannel && ([CHANNELS["COMMANDS"], CHANNELS["PUBLIC_COMMANDS"]].indexOf(interaction.channel.id) < 0)) {
+                if (file.config['inBotChannel'] && ([CHANNELS["COMMANDS"], CHANNELS["PUBLIC_COMMANDS"]].indexOf(interaction.channel.id) < 0)) {
                     return interaction.reply({
                         content: `You can\'t do that here ! ${CHANNELS["COMMANDS"] ? `Try in <#${CHANNELS["COMMANDS"]}>` : CHANNELS["PUBLIC_COMMANDS"] ? `Try in <#${CHANNELS["BOT_PUBLIC_COMMANDS"]}>` : ''}`,
                         ephemeral: true
