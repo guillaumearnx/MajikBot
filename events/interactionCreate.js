@@ -7,21 +7,21 @@ module.exports = async (bot, interaction) => {
         const file = require(`../interactions/${interaction.commandName}`);
         if (!interactionCommand || !file) return;
         try {
-            if ((file.config.specialPermissions.toLowerCase() === 'owner' && !await checkOwner(interaction.user.id)) || (file.config.specialPermissions.toLowerCase() === 'moderator' && !interaction.member.permissions.has('KICK_MEMBERS', true))) {
+            if ((file.config['specialPermissions'].toLowerCase() === 'owner' && !await checkOwner(interaction.user.id)) || (file.config.specialPermissions.toLowerCase() === 'moderator' && !interaction.member.permissions.has('KICK_MEMBERS', true))) {
                 return interaction.reply({content: 'You can\'t do that !', ephemeral: true});
             }
             if (!interaction.member.permissions.has('ADMINISTRATOR', true)) {
-                if (file.config.specialPermissions.toLowerCase() === 'administrator') {
+                if (file.config['specialPermissions'].toLowerCase() === 'administrator') {
                     return interaction.reply({content: 'You can\'t do that !', ephemeral: true});
                 }
-                if (file.config['inBotChannel'] && ([CHANNELS["COMMANDS"], CHANNELS["PUBLIC_COMMANDS"]].indexOf(interaction.channel.id) < 0)) {
+                if (file.config['inBotChannels'] && ([CHANNELS["COMMANDS"], CHANNELS["PUBLIC_COMMANDS"]].indexOf(interaction.channel.id) < 0)) {
                     return interaction.reply({
                         content: `You can\'t do that here ! ${CHANNELS["COMMANDS"] ? `Try in <#${CHANNELS["COMMANDS"]}>` : CHANNELS["PUBLIC_COMMANDS"] ? `Try in <#${CHANNELS["BOT_PUBLIC_COMMANDS"]}>` : ''}`,
                         ephemeral: true
                     });
                 }
             }
-            await file.run(bot, interaction);
+            await file.run(bot, interaction, interaction.options._hoistedOptions);
         } catch (error) {
             console.error(error)
             await interaction.reply({

@@ -13,16 +13,17 @@ let checkOwner = async (id) => {
 }
 
 let deployInteractions = async (global = false, interactions = false) => {
-    console.info(`\nDeploying interactions ...`.blue);
-    if (!interactions) {
+    console.info(`\nDeploying interactions`.blue + ` ${global ? 'on all guilds'.cyan : 'on main guild'.cyan}`);
+    if (!interactions)
         interactions = await loadInteractions();
-    }
     if (interactions.size > 0) {
         // noinspection JSClosureCompilerSyntax,JSCheckFunctionSignatures
         const rest = new REST({version: '10'}).setToken(CLIENT['TOKEN']);
-        if (global) await rest.put(Routes.applicationCommands(CLIENT['ID']), {body: interactions}); else { // noinspection JSUnresolvedFunction
+        if (global)
+            await rest.put(Routes.applicationCommands(CLIENT['ID']), {body: interactions});
+        else  // noinspection JSUnresolvedFunction
             await rest.put(Routes.applicationGuildCommands(CLIENT['ID'], CLIENT['MAIN_GUILD_ID']), {body: interactions});
-        }
+        console.log("\nIntegrations deployed".green);
     }
 }
 
@@ -40,31 +41,28 @@ let loadInteractions = async () => {
             console.log(`\tLoading interaction : ` + `/${name}`.red);
             interaction.options.map(op => {
                 switch (op.type) {
-                    case 1:
+                    case 3:
                         commandBuilder.addStringOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required).setRequired(op.required ? op.required : false).addChoices(op.choices ? op.choices : []));
                         break;
-                    case 2:
+                    case 4:
                         commandBuilder.addIntegerOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false).addChoices(op.choices ? op.choices : []));
                         break;
-                    case 3:
-                        commandBuilder.addNumberOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false).addChoices(op.choices ? op.choices : []));
-                        break;
-                    case 4:
+                    case 5:
                         commandBuilder.addBooleanOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false));
                         break;
-                    case 5:
-                        commandBuilder.addUserOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false));
-                        break;
                     case 6:
-                        commandBuilder.addRoleOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false));
+                        commandBuilder.addUserOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false));
                         break;
                     case 7:
                         commandBuilder.addChannelOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required).setRequired(op.required ? op.required : false));
                         break;
                     case 8:
-                        commandBuilder.addMentionableOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false))
+                        commandBuilder.addRoleOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false));
                         break;
-                    case 9:
+                    case 10:
+                        commandBuilder.addNumberOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false).addChoices(op.choices ? op.choices : []));
+                        break;
+                    case 11:
                         commandBuilder.addAttachmentOption(option => option.setName(op.name.toLowerCase()).setDescription(op.description).setRequired(op.required ? op.required : false))
                         break;
                 }
@@ -85,7 +83,7 @@ let removeIntegrations = async () => {
     await rest.put(Routes.applicationCommands(CLIENT['ID']), {body: []});
     // noinspection JSUnresolvedFunction
     await rest.put(Routes.applicationGuildCommands(CLIENT['ID'], CLIENT['MAIN_GUILD_ID']), {body: []});
-    console.log("\nIntegrations removed".yellow);
+    console.log("\nIntegrations removed".green);
 }
 
 module.exports = {
