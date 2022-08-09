@@ -17,11 +17,11 @@
   },
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
-    "canvas": "^2.9.3",
     "colors": "^1.4.0",
     "discord-image-generation": "github:guillaumearnx/discord-image-generation",
     "discord.js": "^14.1.2",
     "fs": "^0.0.1-security",
+    "node-fetch": "2.6.7",
     "npm-check-updates": "^16.0.5"
   },
   "devDependencies": {
