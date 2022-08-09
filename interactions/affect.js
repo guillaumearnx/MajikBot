@@ -18,6 +18,6 @@ module.exports = {
         if (!attachment) return interaction.editReply(':x: You need to provide an image');
         if (attachment.size > 8000000) return interaction.editReply(':warning: Image too big');
         attachment = new AttachmentBuilder((await new Affect().getImage(`${attachment.attachment}`)), {name: `affect-${new Date().getDate()}.png`});
-        return interaction.editReply(attachment);
+        return interaction.editReply({content: '', files: [attachment]});
     }
 }
