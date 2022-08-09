@@ -6,6 +6,12 @@
 
 # 📸 Screenshots
 
+<img alt='majik' src="https://user-images.githubusercontent.com/37373941/183777654-84bb8d0d-0c44-4613-adc4-2995cfd74a91.png" height="200"/>
+<img alt='bobross' src="https://user-images.githubusercontent.com/37373941/183777995-0eaa224d-4f1c-4792-a98a-ae373200d045.png" height="200"/>
+<img alt='delete' src="https://user-images.githubusercontent.com/37373941/183778039-36cf1c86-6ecd-48c7-b80c-0c484d120bda.png" height="200"/>
+<img alt='affect' src="https://user-images.githubusercontent.com/37373941/183778046-d1e79293-2dd6-47fb-bcd8-21d8884a4b21.png" height="200"/>
+
+
 # 💻 Self hosting
 
 ## 🚧 Prerequisites 
@@ -55,5 +61,7 @@ This work is licensed under a
 :x: Support server is **currently closed**
 
 ---
+
+Thank's to [Mr-KayJayDee](https://git.mrkayjaydee.xyz/Mr-KayJayDee) for his module [discord-image-generation](https://www.npmjs.com/package/discord-image-generation)
 
 Made with :heart: and JavaScript!
