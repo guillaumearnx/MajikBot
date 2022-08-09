@@ -1,6 +1,14 @@
 const {checkOwner} = require('../utils/functions')
 const {CHANNELS} = require("../config.json")
 
+let handle = async (run, fail) => {
+    try {
+        await run();
+    } catch (error) {
+        await fail();
+    }
+}
+
 module.exports = async (bot, interaction) => {
     if (interaction.isChatInputCommand()) {
         const interactionCommand = bot.interactions.get(interaction.commandName);
@@ -24,9 +32,10 @@ module.exports = async (bot, interaction) => {
             await file.run(bot, interaction, interaction.options._hoistedOptions);
         } catch (error) {
             console.error(error)
-            await interaction.reply({
-                content: 'There was an error while executing this command!', ephemeral: true
-            });
+            const data = {
+                content: ':x: There was an error while executing this command !', ephemeral: true
+            };
+            await handle(() => interaction.reply(data), () => interaction.editReply(data));
         }
     }
 
