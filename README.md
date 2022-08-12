@@ -58,7 +58,7 @@ This work is licensed under a
 
 # Support
 
-:x: Support server is **currently closed**
+Join the Official [Discord Support Server](https://discord.garnx.fr)
 
 ---
 
