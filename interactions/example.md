@@ -14,9 +14,10 @@ module.exports = {
         {type: 7, name: 'user', description: 'Mention user.', required: false},
         {type: 8, name: 'channel', description: 'Mention channel.', required: true},
         {
-            type: 4, name: 'mode', description: 'Application mode.', required: false, choices: [
-                ["Fast Mode", 1],
-                ["Full Mode", 2]
+            type: 4, name: 'mode', description: 'Application mode.', required: false,
+            choices: [
+                {name: "Fast Mode", value: 1},
+                {name: "Full Mode", value: 2}
             ]
         }
     ],

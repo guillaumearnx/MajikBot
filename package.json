@@ -1,19 +1,21 @@
 {
   "name": "majikbot",
-  "description": "A bot for the Majik Discord server",
+  "description": "Image manipulation bot",
   "author": {
-    "name": "arnoux23u",
-    "url": "https://github.com/guillaumearnx"
+    "name": "Guillaume ARNOUX",
+    "url": "https://garnx.fr",
+    "email": "contact@garnx.fr"
   },
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "lint": "eslint .",
     "interactions:guild": "node utils/deploy-integrations.js",
     "interactions:global": "node utils/deploy-integrations-global.js",
-    "interactions:remove": "node utils/remove-integrations.js"
+    "interactions:remove": "node utils/remove-integrations.js",
+    "lint": "eslint . --ext .js",
+    "lint-fix": "eslint . --ext .js --fix"
   },
   "dependencies": {
     "@discordjs/rest": "^1.0.1",

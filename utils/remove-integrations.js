@@ -1,3 +1,5 @@
-const {removeIntegrations} = require("./functions");
+const { removeIntegrations } = require("./functions");
 
-removeIntegrations().catch(e => console.error(e));
+(async () => {
+	await removeIntegrations();
+})();

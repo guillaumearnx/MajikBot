@@ -1,3 +1,5 @@
-const {deployInteractions} = require("./functions");
+const { deployInteractions } = require("./functions");
 
-deployInteractions().catch(e => console.error(e));
+(async () => {
+	await deployInteractions();
+})();
